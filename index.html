@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata for character set and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Switcher</title>
+    <!-- Font Awesome CDN link for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+     
+    <!-- External to the main Css file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- Color switcher UI -->
+    <div class="color-switcher">
+        <!-- Button to toggle the color switcher -->
+        <div class="switcher-btn">
+            <i class="fas fa-cog"></i>
+        </div>
+
+        <!-- Header for the color switcher -->
+        <h3>Select Color</h3>
+
+        <!-- Container for color buttons -->
+        <div class="theme-button-container">
+            <!-- Individual color buttons with data-color attribute -->
+            <span class="theme-button" data-color="#8e44ad" style="background:#8e44ad;"></span>
+            <span class="theme-button" data-color="#2980b9" style="background:#2980b9;"></span>
+            <span class="theme-button" data-color="#f39c12" style="background:#f39c12;"></span>
+            <span class="theme-button" data-color="#27ae60" style="background:#27ae60;"></span>
+            <span class="theme-button" data-color="#e74c3c" style="background:#e74c3c;"></span>
+            <span class="theme-button" data-color="#e84393" style="background:#e84393;"></span>
+            <span class="theme-button" data-color="#ff4757" style="background:#ff4757;"></span>
+            <span class="theme-button" data-color="#ffc312" style="background:#ffc312;"></span>
+            <span class="theme-button" data-color="#17c0eb" style="background:#17c0eb;"></span>
+        </div>
+    </div>
+
+    <!-- Main content container -->
+    <div class="container">
+        <!-- Heading with dynamic color -->
+        <h1>Color Switcher</h1>
+    </div>
+
+    <!-- JavaScript for color switcher functionality -->
+    <script>
+        // Toggle color switcher on button click
+        document.querySelector('.switcher-btn').onclick =() =>{
+            document.querySelector('.color-switcher').classList.toggle('active');
+        }
+
+        // Change theme color on button click
+        let themeButton = document.querySelectorAll('.theme-button');
+
+        themeButton.forEach(color => {
+            color.addEventListener('click', () => {
+                let dataColor = color.getAttribute('data-color');
+                document.querySelector(':root').style.setProperty('--main-color', dataColor)
+            });
+        });
+    </script>
+</body>
+</html>
